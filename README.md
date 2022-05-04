@@ -1,6 +1,13 @@
 # RegexPatterns
 Realtime regex program in C#. Used to test regex expressions. This regex program is made to show results while you type real-time to make it easier to understand how regex works. Below is some information on how the regex expression works. The regex class is from the namespace: System.Text.RegularExpression.
 
+**Interface**
+----------------------
+For the most part, using the program is straight-forward. The top textbox takes in the regex expression while the bottom textbox takes in the data value. The IsMatch function is then used to compare the strings. The real-time checkpoint toggles the bottom between checking after each keypress or to standby and wait for the user to press enter or click confirm.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/100814612/166621943-d3667c2a-fc42-4d4c-80bf-c26eea5b8195.png"><img>
+</p>
 
 **Special characters**
 ----------------------
