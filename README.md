@@ -1,5 +1,5 @@
 # RegexPatterns
-Realtime regex program in C#. Used to test regex expressions. This regex program is made to show results while you type real-time to make it easier to understand how regex works. Below is some information on how the regex expression works. The regex class is from the namespace: System.Text.RegularExpression.
+Realtime regex program in C#. Used to test regex expressions as this can become a very complicated topic. This regex program is made to show results while you type real-time to make it easier to understand how regex works. Below is some information on how the regex expression works. The regex class is from the namespace: System.Text.RegularExpression.
 
 **Interface**
 ----------------------
