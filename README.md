@@ -22,11 +22,28 @@ Special characters in a regex are used to assign several different meanings to a
 | \d | Lower case ```d``` is used to match a digit character and upper case ```D``` is used to match non-digit characters. |
 | \s | Lower case ```s``` is used to match white spaces and upper case ```S``` is used to match non-white space. |
 | \w | Lower case ```w``` is used to match alphanumeric/underscore characters and upper case ```W``` is used to match non-word characters. |
+| \[a-z] | Characters in range from the alphabet “a” to “z”. |
+| \[1-9] | Characters in range from the numbers “1” to “9” |
+| \[^1] | The character ```^``` denotes the negate character class. In this case, it would be characters that are not 1. |
+| (A\|B) | The ```\|``` operator is used inside a round bracket for using an alternative pattern. In this case, A or B. |
+
+**Quantifier Characters**
+---------------------
+Different from special characters, the quantifier characters are used to count or quantify the matching requirements. An example would be if you wanted a string to contain a number n times in a row (where n is any number).
+
+| Characters | Description |
+| --- | --- |
+| * | Used to match the preceding character. |
+| + | Used to match one or more characters in a row. |
+| {n} | Used to match the number of the preceding character defined by numeric inside curly braces. |
+| {n,} | Used to make sure that it matches at least n times. |
+| {n, m} | Matching from preceding character from n number of times to m number of times. |
+| ? | Makes preceding characters match as optional. |
 
 
 **Methods**
 --------------
-Very useful methods in the regex class. Some of these methods can be seen in my [text editor](https://github.com/Kttra/TextEditor) program.
+Very useful methods in the regex class. Some of these methods can be seen in my [text editor program](https://github.com/Kttra/TextEditor).
 
 | Method | Description |
 | --- | --- |
