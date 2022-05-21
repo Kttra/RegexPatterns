@@ -1,5 +1,5 @@
 # RegexPatterns
-Realtime regex program in C#. Used to test regex expressions as this can become a very complicated topic. This regex program is made to show results while you type real-time to make it easier to understand how regex works. Below is some information on how the regex expression works. The regex class is from the namespace: System.Text.RegularExpression.
+Realtime regex program in C#. Used to test regex expressions as this can become a very complicated topic. This regex program is made to show results while you type real-time to make it easier to understand how regex works. Below is some information on how the regex expression works. The regex class is from the namespace: System.Text.RegularExpressions.
 
 **Interface**
 ----------------------
@@ -52,3 +52,107 @@ Very useful methods in the regex class. Some of these methods can be seen in my 
 | IsMatch(String text, String pattern) | Accepts two parameters and returns a Boolean value. The first parameter is the text in which the user needs to find a pattern and the next parameter provide the pattern which the user is searching in the given text. |
 | Replace(String text, String replacementText) | Accepts two parameters and returns a string value. The first parameter is the character sequence or regex that you want to use for the match and the second parameter is the replacement string. |
 | Split(string text) | Accepts string input as a parameter and returns an array containing substrings. |
+
+**Regex Methods in Action**
+-----------------------------------
+Examples of how some of the methods work.
+
+```csharp
+string patternText = "Hello";
+Regex reg = new Regex(patternText);
+
+//IsMatch(string input)
+Console.WriteLine(reg.IsMatch("Hello World")); //True
+
+//IsMatch(string input, int index) - input string and the index from where the match has to start
+Console.WriteLine(reg.IsMatch("Hello", 0)); //True
+
+//IsMatch(string input, string pattern)
+Console.WriteLine(Regex.IsMatch("Hello World", patternText)); //True
+
+//Replace(string input, string replacement)
+Console.WriteLine(reg.Replace("Hello World", "Replace")); //Replace World
+
+//Split(string input, string pattern)
+string[] arr = Regex.Split("Hello_World_Today", "_");
+foreach(string subStr in arr)
+{
+    Console.Write(subStr + " "); //Hello World Today
+}
+```
+
+**Pattern Example**
+------------------------
+The pattern below specifies that we want a word consisting of any letters and it has to be 6 characters long.
+
+```csharp
+string patternText = @"^[a-zA-Z]{6}$";
+Regex reg = new Regex(patternText);
+
+//When pattern matches
+Console.WriteLine(reg.IsMatch("active")); //True
+
+//When pattern doesnt match
+Console.WriteLine(reg.IsMatch("aced")); //False
+```
+
+This is another example. In this pattern we want the string to **start with "hello"** and **has a space after** it.
+```csharp
+string patternText = @"^Hello\s";
+Regex reg = new Regex(patternText);
+
+//When pattern matches
+Console.WriteLine(reg.IsMatch("Hello world")); //True
+
+Console.WriteLine(reg.IsMatch("Well, Hello to you too")); //False
+
+//When pattern doesnt match
+Console.WriteLine(reg.IsMatch("HelloWorld")); //False
+```
+
+Below is an example of wanting a string with a **specific ending extension**. The "\w" denotes we will accept any character (alphanumeric and special characters) while the "+" means that we will allow for the "\w" condition can repeat 1 or more times.
+
+```csharp
+string patternText = @"(\w+)\.(jpg|png|jpeg|gif)$";
+
+Regex reg = new Regex(patternText);
+
+//When pattern matches, All True
+Console.WriteLine(reg.IsMatch("abc.jpg"));
+Console.WriteLine(reg.IsMatch("abcd.gif"));
+Console.WriteLine(reg.IsMatch("abcde.png"));
+
+//When pattern doesnt match, All false
+Console.WriteLine(reg.IsMatch(".jpg"));
+Console.WriteLine(reg.IsMatch("ask.jpegj"));
+```
+
+Below is an example of of a **website pattern**.
+
+```csharp
+string patternText = @"^www.[a-zA-Z0-9]{3,20}.(com|in|org|co\.in|net|dev)$";
+
+Regex reg = new Regex(patternText);
+
+//When pattern matches, true
+Console.WriteLine(reg.IsMatch("www.yahoo.com"));
+
+//When pattern doesnt match, false
+Console.WriteLine(reg.IsMatch("ww.bgerg40j.movie"));
+```
+
+Below is an example of a **email pattern**.
+
+```csharp
+string patternText = @"^[a-zA-Z0-9\._-]{5,25}.@.[a-z]{2,12}.(com|org|co\.in|net)";
+ 
+Regex reg = new Regex(patternText);
+
+//When pattern matches, true
+Console.WriteLine(reg.IsMatch("myName@gmail.com"));
+Console.WriteLine(reg.IsMatch("personal.Mail@yahoo.co.in"));
+
+//When pattern doesnt match, false
+Console.WriteLine(reg.IsMatch("ww.htr23d.su@b.dot"));
+```
+
