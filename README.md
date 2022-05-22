@@ -144,7 +144,7 @@ Console.WriteLine(reg.IsMatch("ww.bgerg40j.movie"));
 Below is an example of a **email pattern**.
 
 ```csharp
-string patternText = @"^[a-zA-Z0-9\._-]{5,25}.@.[a-z]{2,12}.(com|org|co\.in|net)";
+string patternText = @"^[a-zA-Z0-9\._-]{5,25}.@.[a-z]{2,12}.(com|org|co\.in|net)$";
  
 Regex reg = new Regex(patternText);
 
@@ -156,3 +156,11 @@ Console.WriteLine(reg.IsMatch("personal.Mail@yahoo.co.in"));
 Console.WriteLine(reg.IsMatch("ww.htr23d.su@b.dot"));
 ```
 
+**Simple Patterns**
+-------------------------
+- One character only between a to g.
+    - ```^[a-g]$```
+- One to there characters between a to g.
+    - ```^[a-g]{1,3}$```
+- A string consisting of 8 numbers
+    - ```^[0-9]{8}$```
